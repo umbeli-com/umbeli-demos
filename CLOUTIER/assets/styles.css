@@ -182,8 +182,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ---------- Hero ---------- */
 .hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; color: var(--creme); }
 .hero.sub { min-height: 0; height: 56vh; max-height: 520px; min-height: 380px; }
-.hero-bg { position: absolute; inset: 0; z-index: 0; }
-.hero-bg img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.85); }
+.hero-bg { position: absolute; inset: 0; z-index: 0; background: linear-gradient(120deg,#0D4597 0%,#0049EB 55%,#16365c 100%); }
+.hero-bg.warm { background: linear-gradient(120deg,#0D2943 0%,#0D4597 45%,#FF3F00 120%); }
+.hero-bg img, .hero-bg .ph { width: 100%; height: 100%; object-fit: cover; filter: saturate(.92); }
 .hero-bg::after {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(115deg, rgba(8,27,46,.92) 0%, rgba(13,41,67,.78) 42%, rgba(13,69,151,.55) 100%);
@@ -398,7 +399,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .art-panel.chaud { background: var(--grad-chaud); }
 .art-panel.duo  { background: linear-gradient(110deg, var(--bleu) 0%, var(--bleu-vif) 48%, #1B3B6B 50%, var(--orange) 100%); }
 .art-panel.marine { background: radial-gradient(120% 120% at 80% 10%, #16365c 0%, var(--marine-900) 70%); }
-.art-panel svg.art { width: 78%; height: 78%; position: relative; z-index: 2; }
+/* La line-art ne s'affiche QUE si la photo ne charge pas (fallback) */
+.art-panel svg.art { width: 78%; height: 78%; position: relative; z-index: 2; display: none; }
+.art-panel.noimg svg.art { display: block; }
+/* Photo qui recouvre le panneau */
+.art-panel .ph { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; }
+.art-panel .ph-shade { position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  background: linear-gradient(150deg, rgba(8,27,46,.34) 0%, rgba(8,27,46,.05) 45%, rgba(255,63,0,.14) 100%); }
+.art-panel.froidtint .ph-shade { background: linear-gradient(150deg, rgba(13,69,151,.42), rgba(13,69,151,.04) 60%); }
+.art-panel.chaudtint .ph-shade { background: linear-gradient(150deg, rgba(255,63,0,.40), rgba(13,41,67,.22) 70%); }
 .art-panel .blueprint {
   position: absolute; inset: 0; z-index: 1; opacity: .5;
   background-image:
@@ -427,6 +436,58 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .hf .chip.c { background: rgba(13,69,151,.12); color: var(--bleu); }
 .hf .chip.h { background: rgba(255,63,0,.12); color: var(--orange); }
 .hf .chip svg { width: 14px; height: 14px; }
+
+/* ---------- Vagues du logo (swoosh) ---------- */
+/* Signature visuelle reprise du logo : arc bleu + arc orange */
+.swoosh { display: inline-block; width: 78px; height: 50px; vertical-align: middle; }
+.swoosh .b { fill: none; stroke: var(--bleu-vif); stroke-width: 11; stroke-linecap: round; }
+.swoosh .o { fill: none; stroke: var(--orange); stroke-width: 11; stroke-linecap: round; }
+.center .swoosh { display: block; margin: 0 auto 14px; }
+
+/* Diviseur ondulé pleine largeur entre sections */
+.wave-divider { display: block; width: 100%; height: 90px; margin-bottom: -6px; line-height: 0; }
+.wave-divider.flip { transform: rotate(180deg); margin-bottom: 0; margin-top: -6px; }
+.wave-divider svg { width: 100%; height: 100%; display: block; }
+
+/* Vague décorative ambiante (coin de hero / section) */
+.wave-amb { position: absolute; z-index: 0; pointer-events: none; opacity: .5; }
+
+/* ---------- Sections FOCUS chaud / froid ---------- */
+.focus { position: relative; overflow: hidden; color: #fff; }
+.focus .wrap { position: relative; z-index: 3; }
+.focus-bg { position: absolute; inset: 0; z-index: 0; }
+.focus-bg .ph { width: 100%; height: 100%; object-fit: cover; }
+.focus.froid { background: linear-gradient(120deg,#0D4597,#0049EB); }
+.focus.chaud { background: linear-gradient(120deg,#0D2943,#FF3F00); }
+.focus.froid .focus-bg::after { content:""; position:absolute; inset:0; background: linear-gradient(110deg, rgba(8,27,46,.86) 0%, rgba(13,69,151,.62) 60%, rgba(13,69,151,.30) 100%); }
+.focus.chaud .focus-bg::after { content:""; position:absolute; inset:0; background: linear-gradient(110deg, rgba(8,27,46,.80) 0%, rgba(176,40,0,.55) 65%, rgba(255,63,0,.40) 100%); }
+.focus-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+.focus.chaud .focus-grid { grid-template-columns: .95fr 1.05fr; }
+.focus.chaud .focus-copy { order: 2; }
+.focus h2 { font-family: var(--ff-body); font-weight: 700; font-size: clamp(2rem,4.2vw,3.2rem); line-height: 1.04; letter-spacing: -.02em; color:#fff; }
+.focus .lead { color: rgba(255,255,255,.86); }
+.focus .flist { display: grid; gap: 14px; margin-top: 26px; }
+.focus .flist li { display: flex; gap: 13px; align-items: flex-start; font-size: 1.02rem; color: rgba(255,255,255,.92); }
+.focus .flist svg { width: 22px; height: 22px; flex-shrink: 0; margin-top: 3px; }
+.focus.froid .flist svg { color: #8FC0FF; }
+.focus.chaud .flist svg { color: #FFC2A8; }
+.focus-badge { display:inline-flex; align-items:center; gap:10px; font-family:var(--ff-disp);
+  font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; padding:9px 16px; border-radius:100px; margin-bottom:22px; }
+.focus.froid .focus-badge { background: rgba(143,192,255,.18); color:#BFDcFF; }
+.focus.chaud .focus-badge { background: rgba(255,148,108,.20); color:#FFD2BE; }
+.focus-visual { position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/5; box-shadow: var(--shadow); background: rgba(255,255,255,.06); }
+.focus-visual .ph { width:100%; height:100%; object-fit: cover; }
+.focus-visual .fv-shade { position:absolute; inset:0; }
+.focus.froid .focus-visual .fv-shade { background: linear-gradient(180deg, transparent 40%, rgba(13,69,151,.55)); }
+.focus.chaud .focus-visual .fv-shade { background: linear-gradient(180deg, transparent 40%, rgba(176,40,0,.55)); }
+.focus-visual .tagchip { position:absolute; left:18px; bottom:18px; }
+.focus .big-temp { position:absolute; z-index:1; font-family:var(--ff-disp); font-weight:700;
+  font-size: clamp(7rem, 20vw, 16rem); line-height:.8; opacity:.07; right:2%; top:8%; color:#fff; user-select:none; }
+@media (max-width: 880px) {
+  .focus-grid, .focus.chaud .focus-grid { grid-template-columns: 1fr; gap: 34px; }
+  .focus.chaud .focus-copy { order: 0; }
+  .focus-visual { aspect-ratio: 16/10; }
+}
 
 /* ---------- Scroll reveal ---------- */
 .rv { opacity: 0; transform: translateY(34px); transition: opacity .8s var(--ease), transform .8s var(--ease); }

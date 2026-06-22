@@ -119,8 +119,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .btn-froid:hover { transform: translateY(-3px); background: var(--bleu-vif); }
 .btn-ghost { border: 1.6px solid currentColor; color: var(--marine); }
 .btn-ghost:hover { background: var(--marine); color: #fff; transform: translateY(-3px); }
-.bg-marine .btn-ghost { color: #fff; }
-.bg-marine .btn-ghost:hover { background: #fff; color: var(--marine); }
+.bg-marine .btn-ghost, .hero .btn-ghost { color: #fff; border-color: rgba(255,255,255,.6); }
+.bg-marine .btn-ghost:hover, .hero .btn-ghost:hover { background: #fff; color: var(--marine); border-color: #fff; }
 
 /* ---------- Header / Nav ---------- */
 .hdr {
@@ -280,7 +280,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: var(--grad-thermo); -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .stat .lbl { margin-top: 8px; font-size: .92rem; color: var(--gris-tx); }
-.bg-marine .stat .lbl { color: #9FB1C6; }
+.bg-marine .stat .lbl { color: #C2D2E6; }
+/* Sur fond marine : chiffres en bleu clair lumineux (lisibilité) */
+.bg-marine .stat .num {
+  background: linear-gradient(90deg, #6BA6F5 0%, #A9CEFF 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
 
 /* ---------- Marquee ---------- */
 .marquee { overflow: hidden; padding: 26px 0; border-block: 1px solid var(--gris); background: var(--creme); }

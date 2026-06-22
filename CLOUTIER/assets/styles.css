@@ -443,10 +443,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ---------- Vagues du logo (swoosh) ---------- */
 /* Signature visuelle reprise du logo : arc bleu + arc orange */
-.swoosh { display: inline-block; width: 46px; height: 32px; vertical-align: middle; overflow: visible; }
-.swoosh .b { fill: none; stroke: var(--bleu-vif); stroke-width: 5; stroke-linecap: round; }
-.swoosh .o { fill: none; stroke: var(--orange); stroke-width: 5; stroke-linecap: round; }
-.center .swoosh { display: block; margin: 0 auto 16px; width: 56px; height: 38px; }
+/* Swoosh = vraie pièce du logo (assets/swoosh.svg) */
+.swoosh { display: inline-block; height: 30px; width: auto; vertical-align: middle; }
+.center .swoosh { display: block; margin: 0 auto 18px; height: 44px; }
+/* Arc du logo en accent CONTEXTUEL : froid.svg (bleu) en zone fraîche,
+   chaud.svg (orange) en zone chaude. Placé séparément, jamais fusionné. */
+.ctx-arc { position: absolute; z-index: 0; pointer-events: none; height: auto; opacity: .5; }
+.ctx-arc.bl { bottom: -70px; left: -110px; width: min(34%, 330px); }
+.ctx-arc.br { bottom: -70px; right: -110px; width: min(34%, 330px); }
+@media (max-width: 760px){ .ctx-arc { display: none; } }
 
 /* Diviseur ondulé pleine largeur entre sections */
 .wave-divider { display: block; width: 100%; height: 90px; margin-bottom: -6px; line-height: 0; }
@@ -493,62 +498,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .focus-visual { aspect-ratio: 16/10; }
 }
 
-/* ---------- Décor SVG personnalisé en arrière-plan ---------- */
-:root {
-  /* Vagues d'air (flux) — lignes bleues très claires */
-  --bg-air: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='820' height='320'%3E%3Cg fill='none' stroke='rgba(13,69,151,0.06)' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M-20,90 C180,20 360,20 540,90 S900,160 1100,90'/%3E%3Cpath d='M-20,150 C180,80 360,80 540,150 S900,220 1100,150'/%3E%3Cpath d='M-20,210 C180,140 360,140 540,210 S900,280 1100,210'/%3E%3C/g%3E%3C/svg%3E");
-  /* Flocons (froid) — tuile */
-  --bg-snow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.09)' stroke-width='1.4' stroke-linecap='round'%3E%3Cg transform='translate(75,75)'%3E%3Cpath d='M0,-22V22M-19,-11L19,11M-19,11L19,-11'/%3E%3Cpath d='M0,-22l-5,6M0,-22l5,6M0,22l-5,-6M0,22l5,-6M19,11l-7,0M19,11l0,-7M-19,-11l7,0M-19,-11l0,7M-19,11l0,-7M-19,11l7,0M19,-11l-7,0M19,-11l0,7'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  /* Ondes de chaleur (chaud) — tuile */
-  --bg-heat: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='140'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M28,128 C18,104 38,92 28,68 C18,44 38,32 28,10'/%3E%3Cpath d='M65,128 C55,104 75,92 65,68 C55,44 75,32 65,10'/%3E%3Cpath d='M102,128 C92,104 112,92 102,68 C92,44 112,32 102,10'/%3E%3C/g%3E%3C/svg%3E");
-  /* Trame blueprint pointillée (marine) */
-  --bg-dots: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Ccircle cx='3' cy='3' r='1.4' fill='rgba(255,255,255,0.06)'/%3E%3C/svg%3E");
-  /* Filigrane swoosh du logo (grand watermark) */
-  --bg-swoosh: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='300'%3E%3Cg fill='none' stroke-width='26' stroke-linecap='round'%3E%3Cpath d='M340,70 C220,10 90,40 80,150' stroke='rgba(13,69,151,0.05)'/%3E%3Cpath d='M80,150 C90,260 220,290 340,230' stroke='rgba(255,63,0,0.05)'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-/* Sections crème : vagues d'air en haut-droite + filigrane swoosh en bas-gauche */
-.bg-creme { position: relative; isolation: isolate; }
-.bg-creme::before {
-  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: var(--bg-air) no-repeat right -40px top -20px, var(--bg-swoosh) no-repeat left -80px bottom -40px;
-  background-size: 820px auto, 420px auto;
-}
-
-/* Sections blanches décorées (utilitaire) */
-.deco-air { position: relative; isolation: isolate; }
-.deco-air::before {
-  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: var(--bg-air) no-repeat right -60px top 40px;
-  background-size: 760px auto; opacity: .9;
-}
-.deco-swoosh-br { position: relative; isolation: isolate; }
-.deco-swoosh-br::before {
-  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: var(--bg-swoosh) no-repeat right -70px bottom -50px; background-size: 460px auto;
-}
-
-/* Sections marine : trame pointillée + filigrane swoosh */
-.bg-marine { position: relative; isolation: isolate; }
-.bg-marine::before {
-  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: var(--bg-dots) repeat;
-  -webkit-mask-image: linear-gradient(120deg, #000 0%, transparent 60%);
-          mask-image: linear-gradient(120deg, #000 0%, transparent 60%);
-}
-
-/* Focus froid : flocons ; focus chaud : ondes de chaleur (au-dessus de l'image, sous le texte) */
-.focus.froid::before, .focus.chaud::before {
-  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
-}
-.focus.froid::before { background: var(--bg-snow) repeat; -webkit-mask-image: linear-gradient(100deg, #000, transparent 70%); mask-image: linear-gradient(100deg, #000, transparent 70%); }
-.focus.chaud::before { background: var(--bg-heat) repeat; -webkit-mask-image: linear-gradient(260deg, #000, transparent 70%); mask-image: linear-gradient(260deg, #000, transparent 70%); }
-
-/* Heros : filigrane swoosh ambiant derrière le texte */
-.hero::before {
-  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: var(--bg-swoosh) no-repeat right -60px bottom -30px; background-size: 480px auto; opacity: .7;
-}
+/* ---------- Décor : aucun motif de fond empilé ----------
+   Plus de vagues/flocons/ondes/trames en surimpression. La seule
+   décoration est un arc du logo (.ctx-arc) placé dans une zone vide,
+   un par section, jamais par-dessus une image, un dégradé ou un chiffre. */
 
 /* ---------- Scroll reveal ---------- */
 .rv { opacity: 0; transform: translateY(34px); transition: opacity .8s var(--ease), transform .8s var(--ease); }

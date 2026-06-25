@@ -303,6 +303,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ---------- Bande parallax ---------- */
 .parallax {
   position: relative; min-height: 440px; display: flex; align-items: center;
+  padding: 96px 0;
   background-attachment: fixed; background-size: cover; background-position: center;
   color: #fff; overflow: hidden;
 }
@@ -474,7 +475,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .focus.froid { background: linear-gradient(120deg,#0D4597,#0049EB); }
 .focus.chaud { background: linear-gradient(120deg,#0D2943,#FF3F00); }
 .focus.froid .focus-bg::after { content:""; position:absolute; inset:0; background: linear-gradient(110deg, rgba(8,27,46,.86) 0%, rgba(13,69,151,.62) 60%, rgba(13,69,151,.30) 100%); }
-.focus.chaud .focus-bg::after { content:""; position:absolute; inset:0; background: linear-gradient(110deg, rgba(8,27,46,.80) 0%, rgba(176,40,0,.55) 65%, rgba(255,63,0,.40) 100%); }
+.focus.chaud .focus-bg::after { content:""; position:absolute; inset:0; background: linear-gradient(110deg, rgba(8,27,46,.84) 0%, rgba(120,32,4,.80) 55%, rgba(96,28,6,.78) 100%); }
 .focus-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
 .focus.chaud .focus-grid { grid-template-columns: .95fr 1.05fr; }
 .focus.chaud .focus-copy { order: 2; }

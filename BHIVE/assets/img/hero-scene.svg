@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 580" fill="none">
+  <defs>
+    <clipPath id="arch"><path d="M120 300a200 200 0 0 1 400 0v230a20 20 0 0 1-20 20H140a20 20 0 0 1-20-20z"/></clipPath>
+  </defs>
+  <!-- arched window backdrop -->
+  <path d="M120 300a200 200 0 0 1 400 0v230a20 20 0 0 1-20 20H140a20 20 0 0 1-20-20z" fill="#F0D9A8"/>
+  <g clip-path="url(#arch)">
+    <!-- sky -->
+    <rect x="110" y="90" width="420" height="470" fill="#EBC98A"/>
+    <!-- sun -->
+    <g>
+      <g stroke="#C65B3C" stroke-width="10" stroke-linecap="round">
+        <line x1="320" y1="150" x2="320" y2="100"/>
+        <line x1="260" y1="165" x2="238" y2="122"/>
+        <line x1="380" y1="165" x2="402" y2="122"/>
+        <line x1="222" y1="205" x2="185" y2="178"/>
+        <line x1="418" y1="205" x2="455" y2="178"/>
+      </g>
+      <circle cx="320" cy="228" r="62" fill="#E3A32C"/>
+      <circle cx="320" cy="228" r="62" fill="none" stroke="#C65B3C" stroke-width="6"/>
+    </g>
+    <!-- rolling hills -->
+    <path d="M110 470c70-60 150-60 210-20s150 40 210-14v124H110z" fill="#7C8A3B"/>
+    <path d="M110 512c80-46 150-30 220 2s150 24 200-16v66H110z" fill="#3C7E7C"/>
+  </g>
+  <!-- arch frame -->
+  <path d="M120 300a200 200 0 0 1 400 0v230a20 20 0 0 1-20 20H140a20 20 0 0 1-20-20z" fill="none" stroke="#3A2417" stroke-width="7"/>
+
+  <!-- counter -->
+  <rect x="70" y="548" width="500" height="20" rx="10" fill="#C65B3C"/>
+
+  <!-- coffee cup -->
+  <g transform="translate(150 470)">
+    <path d="M8 60c8-4 6-14 4-22" stroke="#EFE0BE" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <path d="M22 60c8-4 6-14 4-22" stroke="#EFE0BE" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <rect x="-16" y="52" width="78" height="46" rx="12" fill="#F4E8D0" stroke="#3A2417" stroke-width="5"/>
+    <path d="M62 60h10a14 14 0 0 1 0 28H62" fill="none" stroke="#3A2417" stroke-width="5"/>
+    <rect x="-24" y="94" width="94" height="10" rx="5" fill="#DB8E6B" stroke="#3A2417" stroke-width="4"/>
+  </g>
+
+  <!-- cocktail -->
+  <g transform="translate(300 452)">
+    <path d="M0 6h74L44 58v40" stroke="#3A2417" stroke-width="5" fill="#DB8E6B" stroke-linjoin="round"/>
+    <path d="M8 12h58L40 50z" fill="#C65B3C"/>
+    <line x1="44" y1="98" x2="44" y2="116" stroke="#3A2417" stroke-width="5"/>
+    <rect x="20" y="116" width="48" height="10" rx="5" fill="#E3A32C" stroke="#3A2417" stroke-width="4"/>
+    <circle cx="60" cy="20" r="7" fill="#A8452B" stroke="#3A2417" stroke-width="3"/>
+    <line x1="60" y1="13" x2="52" y2="2" stroke="#7C8A3B" stroke-width="3"/>
+  </g>
+
+  <!-- vinyl record -->
+  <g transform="translate(430 452)">
+    <circle cx="45" cy="55" r="52" fill="#3A2417"/>
+    <circle cx="45" cy="55" r="52" fill="none" stroke="#5C3A24" stroke-width="2"/>
+    <circle cx="45" cy="55" r="38" fill="none" stroke="#6E4C6B" stroke-width="2"/>
+    <circle cx="45" cy="55" r="20" fill="#E3A32C"/>
+    <circle cx="45" cy="55" r="4" fill="#3A2417"/>
+  </g>
+
+  <!-- little plant -->
+  <g transform="translate(70 452)">
+    <path d="M30 96V60" stroke="#7C8A3B" stroke-width="5"/>
+    <path d="M30 66C10 60 6 40 6 30c18 2 26 20 24 36z" fill="#7C8A3B"/>
+    <path d="M30 60c20-8 24-30 24-42-18 4-26 24-24 42z" fill="#3C7E7C"/>
+    <path d="M30 54c2-16 16-24 24-26-2 16-10 24-24 26z" fill="#7C8A3B"/>
+    <path d="M12 92h36l-4 24a6 6 0 0 1-6 6H22a6 6 0 0 1-6-6z" fill="#C65B3C" stroke="#3A2417" stroke-width="4"/>
+  </g>
+
+  <!-- moon + stars -->
+  <path d="M470 150a26 26 0 1 0 8 34 20 20 0 0 1-8-34z" fill="#F4E8D0" stroke="#3A2417" stroke-width="4"/>
+  <g fill="#F4E8D0" stroke="#3A2417" stroke-width="2">
+    <path d="M180 150l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/>
+    <path d="M420 250l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/>
+  </g>
+</svg>

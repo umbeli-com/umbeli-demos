@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 600" fill="none">
+  <rect width="480" height="600" fill="#F4EEE1"/>
+  <defs><clipPath id="sky"><rect x="0" y="0" width="480" height="432"/></clipPath></defs>
+  <g clip-path="url(#sky)">
+    <circle cx="240" cy="432" r="196" fill="#BC5230"/>
+    <circle cx="240" cy="432" r="196" fill="none" stroke="#201D19" stroke-width="2"/>
+    <circle cx="240" cy="432" r="154" fill="#F4EEE1"/>
+    <circle cx="240" cy="432" r="154" fill="none" stroke="#201D19" stroke-width="2"/>
+    <circle cx="240" cy="432" r="120" fill="#D69A3C"/>
+    <circle cx="240" cy="432" r="120" fill="none" stroke="#201D19" stroke-width="2"/>
+    <circle cx="240" cy="432" r="84" fill="#F4EEE1"/>
+    <circle cx="240" cy="432" r="84" fill="none" stroke="#201D19" stroke-width="2"/>
+    <circle cx="240" cy="432" r="52" fill="#2E6B67"/>
+    <circle cx="240" cy="432" r="52" fill="none" stroke="#201D19" stroke-width="2"/>
+    <!-- rays -->
+    <g stroke="#201D19" stroke-width="2" opacity=".55">
+      <line x1="240" y1="236" x2="240" y2="205"/>
+      <line x1="150" y1="252" x2="132" y2="222"/>
+      <line x1="330" y1="252" x2="348" y2="222"/>
+      <line x1="86" y1="300" x2="60" y2="278"/>
+      <line x1="394" y1="300" x2="420" y2="278"/>
+    </g>
+  </g>
+  <!-- horizon -->
+  <rect x="0" y="430" width="480" height="4" fill="#201D19"/>
+  <!-- ground / text-block suggestion -->
+  <rect x="0" y="434" width="480" height="166" fill="#332F28"/>
+  <g stroke="#D69A3C" stroke-width="7" stroke-linecap="round" opacity=".9">
+    <line x1="60" y1="486" x2="420" y2="486"/>
+  </g>
+  <g stroke="#ECE4D4" stroke-width="5" stroke-linecap="round" opacity=".7">
+    <line x1="120" y1="518" x2="360" y2="518"/>
+    <line x1="150" y1="546" x2="330" y2="546"/>
+  </g>
+  <!-- inner frame line -->
+  <rect x="14" y="14" width="452" height="572" fill="none" stroke="#201D19" stroke-width="1.5" opacity=".5"/>
+</svg>

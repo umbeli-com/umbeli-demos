@@ -1,0 +1,47 @@
+════════════════════════════════════════════════════════════
+  PHOTOS DU SITE B HIVE — mode d'emploi
+════════════════════════════════════════════════════════════
+
+Le site utilise tes vraies photos dès que tu les déposes dans CE dossier
+(assets/img/photos/) avec EXACTEMENT ces noms de fichiers.
+
+Tant qu'un fichier est absent, une photo libre de droit s'affiche à la place
+(secours automatique) — donc le site n'est jamais « cassé ».
+
+Format conseillé : JPG, ~1600 px de large, < 500 Ko chacune.
+
+────────────────────────────────────────────────────────────
+FICHIER À CRÉER   →   QUELLE PHOTO METTRE (parmi celles envoyées)
+────────────────────────────────────────────────────────────
+
+hero.jpg      → Le mur d'enceintes vintage avec le néon « ON AIR » + les
+                platines. (photo horizontale — c'est la grande image d'accueil)
+
+lounge.jpg    → Gros plan des platines Pioneer DJ + lampe ambrée devant
+                les enceintes. (horizontale)
+
+interior.jpg  → Vue large du lounge : canapé cuir noir, mur d'affiches
+                (Over Thinkers), tapis, ambiance. (horizontale/carrée)
+
+coffee.jpg    → La main qui tient le gobelet glacé « B HIVE ». (carrée)
+
+vinyl.jpg     → L'îlot central avec les platines + lampe bulle ambrée. (carrée)
+
+plants.jpg    → La lampe champignon orange + grande plante + miroir +
+                mur de polaroids. (VERTICALE de préférence)
+
+cocktail.jpg  → Le néon abeille vert + les bouteilles du bar. (carrée)
+
+detail.jpg    → Le mur d'affiches rétro rapproché
+                (Over Thinkers / Balance Contrast Flow). (carrée)
+
+apero.jpg     → Une photo d'ambiance de soirée / le mur de polaroids.
+                (horizontale — page Programmation)
+
+events.jpg    → (optionnel) Ambiance canapé/affiches pour la page
+                Événements. (horizontale)
+
+────────────────────────────────────────────────────────────
+Astuce : tu peux aussi m'envoyer les photos et je m'occupe du renommage
+et du recadrage.
+════════════════════════════════════════════════════════════

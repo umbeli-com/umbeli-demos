@@ -102,6 +102,14 @@ h3.sub { font-size: clamp(21px, 2.6vw, 28px); font-weight: 500; }
 /* ---------- Header ---------- */
 header.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: background .3s, border-color .3s; border-bottom: 1px solid transparent; }
 header.nav.scrolled { background: rgba(237,230,216,.92); backdrop-filter: blur(8px); border-bottom-color: var(--ink); }
+/* nav over a dark hero: light text until scrolled */
+header.nav.over-hero:not(.scrolled) .brand .name { color: var(--bone); }
+header.nav.over-hero:not(.scrolled) .nav-links a { color: var(--bone); }
+header.nav.over-hero:not(.scrolled) .lang-toggle { border-color: rgba(237,230,216,.6); }
+header.nav.over-hero:not(.scrolled) .lang-toggle button { color: rgba(237,230,216,.75); }
+header.nav.over-hero:not(.scrolled) .lang-toggle button.active { background: var(--ochre); color: var(--ink); }
+header.nav.over-hero:not(.scrolled) .burger { border-color: rgba(237,230,216,.6); }
+header.nav.over-hero:not(.scrolled) .burger span { background: var(--bone); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
 .brand { display: flex; align-items: center; gap: 11px; }
 .brand img { width: auto; height: 34px; }
@@ -134,12 +142,21 @@ header.nav.scrolled { background: rgba(237,230,216,.92); backdrop-filter: blur(8
 /* ---------- Hero (full-bleed photo) ---------- */
 .hero { position: relative; min-height: 92vh; margin: 8px; border-radius: var(--r-lg); display: flex; align-items: flex-end; overflow: hidden; }
 .hero .hero-bg { position: absolute; inset: 0; z-index: 0; }
-.hero .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
-.hero .hero-bg::after { content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(30,27,23,.42) 0%, rgba(30,27,23,.15) 42%, rgba(30,27,23,.82) 100%); }
+.hero .hero-bg > img { width: 100%; height: 100%; object-fit: cover; }
+.hero-mosaic { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 5px; }
+.hero-mosaic img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.05) contrast(1.02); }
+.hero .hero-bg::after {
+  content:""; position:absolute; inset:0;
+  background:
+    linear-gradient(100deg, rgba(26,16,9,.95) 0%, rgba(26,16,9,.74) 46%, rgba(26,16,9,.5) 100%),
+    radial-gradient(130% 105% at 24% 74%, rgba(48,30,15,.42), transparent 56%),
+    linear-gradient(0deg, rgba(20,13,8,.78), transparent 55%);
+}
 .hero .wrap { position: relative; z-index: 2; padding-bottom: 74px; padding-top: 120px; width: 100%; }
 .hero-tag { display:flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
 .chip { font-weight: 500; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; padding: 7px 16px; border: 1px solid rgba(237,230,216,.55); color: var(--bone); border-radius: var(--pill); }
-.hero h1 { color: var(--bone); margin-bottom: 22px; max-width: 15ch; }
+.hero .eyebrow { color: var(--ochre); }
+.hero h1 { color: var(--bone); margin-bottom: 22px; max-width: 15ch; text-shadow: 0 2px 24px rgba(20,13,8,.5); }
 .hero .lead { color: rgba(237,230,216,.9); margin-bottom: 30px; }
 .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
 .hero-meta { margin-top: 42px; display: flex; gap: 40px; flex-wrap: wrap; border-top: 1px solid rgba(237,230,216,.28); padding-top: 22px; }

@@ -58,7 +58,6 @@ function cardHTML(p){
       '<a href="produit.html?p='+p.id+'"><img src="'+p.img+'" alt="'+p.name+'" loading="lazy" onerror="this.style.opacity=0"></a></div>'+
     '<div class="c-body"><div class="c-cat">'+(CATS[p.cat]||p.cat)+'</div>'+
       '<div class="c-name"><a href="produit.html?p='+p.id+'">'+p.name+'</a></div>'+
-      '<div class="c-rate"><span class="c-stars">'+STAR+STAR+STAR+STAR+STAR+'</span>'+p.rate.toFixed(1)+' <span style="opacity:.6">('+p.n+')</span></div>'+
       '<div class="c-foot"><div class="etq"><div class="etq-price '+(p.old?'is-promo':'')+'">'+money(p.price)+(p.old?' <s>'+money(p.old)+'</s>':'')+'</div><div class="etq-sub">'+p.sub+'</div></div>'+
       '<div class="c-cart" data-cart="'+p.id+'">'+cartControl(p)+'</div></div>'+
     '</div></article>';
@@ -148,6 +147,7 @@ function headerHTML(page){
     '<div class="hd-actions"><a href="tel:8193702828" class="hd-tel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg><span>819-370-2828</span></a>'+
     '<button class="cart-btn" data-opencart><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1.6"/><circle cx="18" cy="21" r="1.6"/><path d="M2 3h3l2.6 13.4a1.5 1.5 0 0 0 1.5 1.2h8.7a1.5 1.5 0 0 0 1.5-1.2L22 7H6"/></svg><span id="cartTotalHd">0,00&nbsp;$</span><span class="cart-count" id="cartCount" style="display:none">0</span></button></div>'+
   '</div>'+
+  '<div class="msearch"><div class="msearch-in"><input type="search" placeholder="Rechercher un produit…" aria-label="Rechercher"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div></div>'+
   '<nav class="hd-pages"><div class="wrap">'+pages+'</div></nav>'+
   '<div class="hd-sub" id="okHdSub"><div class="wrap" id="okHdSubInner"></div></div>'+
   '<div class="freeship" id="okFreeship"><div class="wrap"><span class="ic ic-green fs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v8H3zM14 9h4l3 3v3h-7z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></span><div class="fs-body"><div class="fs-msg" id="fsMsg">Plus que <b>100,00&nbsp;$</b> pour la <b>livraison GRATUITE</b>.</div><div class="fs-track"><div class="fs-fill" id="fsFill"></div></div></div><span class="fs-tag">Objectif 100&nbsp;$</span></div></div>'+

@@ -763,3 +763,67 @@ em.hl::after {
 @media (max-width: 560px) { .collage .pop-count { left: 50%; right: auto; top: auto; bottom: -6px; transform: translateX(-50%); } .collage .pop-count.bump { transform: translateX(-50%) scale(1.12) rotate(-3deg); } }
 .pet-opt svg { background: var(--menthe-pale); border-radius: 50%; padding: 6px; }
 .pet-opt:nth-child(2) svg { background: var(--abricot-pale); }
+
+/* ============================================================
+   Retouches (retours Brice, 20 oct.)
+   ============================================================ */
+/* vrai logo */
+.logo-img { height: 38px; width: auto; display: block; transition: transform .5s var(--spring); }
+.brand:hover .logo-img { transform: rotate(-3deg) scale(1.04); }
+.ftr .logo-img { height: 44px; }
+@media (max-width: 920px) { .logo-img { height: 32px; } }
+
+/* titres : plus de soulignés, l'italique rose suffit */
+em.hl::after { display: none; }
+
+/* attributs du hero : du texte, pas des boutons */
+.proof { gap: 6px 0; align-items: center; }
+.proof > span { padding: 0; background: none; box-shadow: none; border-radius: 0; font-size: 15px; font-weight: 700; color: var(--cacao-2); }
+.proof > span + span::before { content: ''; display: inline-block; width: 5px; height: 5px; margin: 0 14px 2px; border-radius: 50%; background: var(--rose); opacity: .55; vertical-align: middle; }
+.proof svg { width: 18px; height: 18px; color: var(--rose); }
+.proof .open-pill { color: #1f6b56; }
+.proof .open-pill.closed { color: var(--rose-deep); }
+.proof .open-pill::before { margin-right: 2px; }
+.proof .open-pill + span::before, .proof span + .open-pill::before { /* le point du statut remplace le séparateur */ }
+.proof > .open-pill::before { width: 8px; height: 8px; margin: 0 8px 0 0; opacity: 1; }
+.proof > span + .open-pill { margin-left: 14px; }
+
+/* en-tête des horaires : peut passer à la ligne */
+.hours-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 12px; margin-bottom: 8px; }
+.cta-band > * { min-width: 0; }
+.cta-band .hours { min-width: 0; }
+@media (max-width: 560px) {
+  .cta-band { padding: 30px 20px; }
+  .cta-band .hours { padding: 16px; }
+  .cta-band .hours .row { padding: 4px 6px; font-size: 14.5px; }
+  .hours-head .open-pill { white-space: normal; }
+}
+
+/* menu mobile : collé sous la barre, même largeur */
+@media (max-width: 920px) {
+  .nav { position: absolute; top: calc(100% + 8px); left: var(--gutter); right: var(--gutter); inset-inline: var(--gutter); max-height: calc(100svh - 110px); }
+  .nav-a[aria-current="page"]::after { left: auto; right: 18px; top: 50%; bottom: auto; margin: -3px 0 0; }
+}
+@media (max-width: 1240px) { .hdr-cta .open-pill { display: none; } }
+@media (max-width: 920px) {
+  /* la barre (backdrop-filter) sert de repère : on s'aligne exactement sur elle */
+  .nav { left: 0; right: 0; inset-inline: 0; top: calc(100% + 8px); }
+}
+
+/* attributs du hero — version finale */
+.proof > span + span::before { content: none; }
+.proof > span:not(.open-pill) + span:not(.open-pill)::before { content: ''; display: inline-block; width: 5px; height: 5px; margin: 0 14px 2px; border-radius: 50%; background: var(--rose); opacity: .55; vertical-align: middle; }
+.proof > span.open-pill, .proof > span.open-pill.closed { background: none; padding: 0; margin-left: 18px; }
+.proof > span.open-pill:first-child { margin-left: 0; margin-right: 18px; }
+.proof > span.open-pill::before { content: ''; display: inline-block; width: 8px; height: 8px; margin: 0 8px 0 0; border-radius: 50%; background: var(--menthe-deep); opacity: 1; animation: ping 2s infinite; }
+.proof > span.open-pill.closed::before { background: var(--rose); animation: none; }
+@media (max-width: 560px) {
+  .proof { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .proof > span:not(.open-pill):first-child::before,
+  .proof > span:not(.open-pill) + span:not(.open-pill)::before { content: ''; display: inline-block; width: 6px; height: 6px; margin: 0 10px 2px 1px; border-radius: 50%; background: var(--rose); opacity: .55; vertical-align: middle; }
+  .proof > span.open-pill, .proof > span.open-pill:first-child { margin: 0; }
+}
+.proof { column-gap: 12px; row-gap: 6px; }
+.proof > span.open-pill, .proof > span.open-pill.closed, .proof > span.open-pill:first-child { margin: 0; }
+.proof > span:not(.open-pill) + span:not(.open-pill)::before { margin: 0 12px 2px 0; }
+@media (max-width: 560px) { .proof > span:not(.open-pill) + span:not(.open-pill)::before { margin: 0 10px 2px 1px; } }

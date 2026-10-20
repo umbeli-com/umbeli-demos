@@ -827,3 +827,29 @@ em.hl::after { display: none; }
 .proof > span.open-pill, .proof > span.open-pill.closed, .proof > span.open-pill:first-child { margin: 0; }
 .proof > span:not(.open-pill) + span:not(.open-pill)::before { margin: 0 12px 2px 0; }
 @media (max-width: 560px) { .proof > span:not(.open-pill) + span:not(.open-pill)::before { margin: 0 10px 2px 1px; } }
+
+/* ============================================================
+   Titres : Permanent Marker, dans l'esprit du logo peint
+   ============================================================ */
+:root { --display: 'Permanent Marker', 'Nunito', cursive; }
+h1, h2, h3, .display { font-family: var(--display); font-weight: 400; font-variation-settings: normal; letter-spacing: .005em; line-height: 1.1; }
+h1 { font-size: clamp(36px, 4.8vw, 72px); }
+h2 { font-size: clamp(29px, 3.5vw, 50px); }
+h3 { font-size: clamp(19px, 1.55vw, 23px); line-height: 1.2; }
+h4 { font-family: var(--body); font-weight: 900; font-variation-settings: normal; letter-spacing: 0; }
+em.hl { font-style: normal; display: inline-block; transform: rotate(-2deg); }
+.page-hero h1 { font-size: clamp(34px, 4.3vw, 62px); }
+.prose h2 { font-size: clamp(25px, 2.6vw, 34px); }
+.towel-item, .value .big, .gallery .note-card b, .polaroid figcaption { font-family: var(--display); font-weight: 400; font-variation-settings: normal; }
+.towel-item { font-size: 20px; }
+.value .big { font-size: 58px; }
+.steps-list li::before { font-family: var(--display); font-weight: 400; font-variation-settings: normal; }
+.polaroid figcaption { font-size: 15px; }
+.cta-band h2, .form-done h2 { font-weight: 400; }
+/* l'accent rose des titres peut passer à la ligne */
+em.hl { display: inline; white-space: normal; transform: none; }
+@media (max-width: 860px) {
+  .photo-hero { width: 86%; }
+  .photo-hero .sticker { left: -4%; }
+  .photo-hero .sticker.r { left: auto; right: -4%; }
+}

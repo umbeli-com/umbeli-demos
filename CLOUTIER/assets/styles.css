@@ -36,6 +36,7 @@
 
   --ff-body: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --ff-disp: 'Michroma', 'Outfit', sans-serif;
+  --ff-script: 'Courgette', 'Brush Script MT', cursive;
 }
 
 /* ---------- Reset ---------- */
@@ -136,8 +137,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .hdr-in { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .brand { display: flex; align-items: center; gap: 12px; }
-.brand img { height: 40px; width: auto; transition: height .4s; }
-.hdr.solid .brand img { height: 34px; }
+.brand img { height: 54px; width: auto; transition: height .4s; }
+.hdr.solid .brand img { height: 44px; }
 .brand .tag {
   font-family: var(--ff-disp); font-size: .52rem; letter-spacing: .18em;
   color: var(--orange); text-transform: uppercase; white-space: nowrap;
@@ -435,6 +436,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* tampon rotatif DEPUIS 1995 */
 .stamp { position: absolute; z-index: 4; width: 124px; height: 124px; }
 .stamp.tr { top: 16px; right: 16px; }
+.stamp.tl { top: 16px; left: 16px; }
 .stamp .rot { animation: spin 26s linear infinite; transform-origin: 50% 50%; }
 @keyframes spin { to { transform: rotate(360deg); } }
 .stamp text { font-family: var(--ff-disp); font-size: 9.4px; letter-spacing: 1.5px; fill: #fff; }
@@ -508,6 +510,59 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    Plus de vagues/flocons/ondes/trames en surimpression. La seule
    décoration est un arc du logo (.ctx-arc) placé dans une zone vide,
    un par section, jamais par-dessus une image, un dégradé ou un chiffre. */
+
+/* ---------- Ajouts 2026-11-10 (retours de Yoan) ---------- */
+/* Hero avec la photo de l'équipe : voile allégé à droite pour garder les visages lisibles */
+.hero-bg.team .ph { object-position: 72% 32%; filter: none; }
+.hero-bg.team::after { background: linear-gradient(180deg, rgba(8,27,46,.62) 0%, rgba(8,27,46,0) 20%), linear-gradient(100deg, rgba(8,27,46,.94) 0%, rgba(8,27,46,.82) 34%, rgba(8,27,46,.30) 62%, rgba(8,27,46,.08) 100%); }
+/* Accueil : titre resserré pour laisser les visages libres à droite */
+.hero.team-hero:not(.sub) h1 { max-width: 10ch; }
+.hero.team-hero:not(.sub) .sub-h1 { max-width: 44ch; }
+/* Sous-page (À propos) : bandeau court, on garde les têtes dans le cadre */
+.hero.sub .hero-bg.team .ph { object-position: 72% 6%; }
+@media (max-width: 760px) {
+  .hero-bg.team .ph { object-position: 74% 30%; }
+  .hero.sub .hero-bg.team .ph { object-position: 76% 8%; }
+  .hero-bg.team::after { background: linear-gradient(180deg, rgba(8,27,46,.50) 0%, rgba(8,27,46,.82) 45%, rgba(8,27,46,.94) 100%); }
+}
+/* Accueil mobile : photo en bandeau au-dessus du texte, visages dégagés */
+@media (max-width: 760px) {
+  .hero.team-hero:not(.sub) { background: var(--marine-900); align-items: flex-start; }
+  .hero.team-hero:not(.sub) .hero-bg { inset: 64px 0 auto 0; height: 440px; background: var(--marine-900); }
+  .hero.team-hero:not(.sub) .hero-bg .ph { object-position: 80% 0%; }
+  .hero.team-hero:not(.sub) .hero-bg::after { background: linear-gradient(180deg, rgba(8,27,46,.7) 0%, rgba(8,27,46,0) 16%, rgba(8,27,46,.12) 42%, rgba(8,27,46,.86) 80%, #081B2E 100%); }
+  .hero.team-hero:not(.sub) .hero-in { padding-top: 330px; padding-bottom: 56px; }
+}
+/* Phrase signature « Comme si c'était pour chez nous… » (même esprit que le lettrage du camion) */
+.signature { font-family: var(--ff-script); font-weight: 400; font-size: clamp(1.6rem, 3.2vw, 2.5rem); line-height: 1.2; color: #fff; margin-top: 20px; }
+/* Lien en bas de carte */
+.card-link { display: inline-block; margin-top: 14px; font-weight: 600; font-size: .95rem; color: var(--bleu); }
+.card.hot .card-link { color: var(--orange); }
+.card-link:hover { text-decoration: underline; }
+/* Équipe */
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; align-items: stretch; }
+.team-card { background: #fff; border: 1px solid var(--gris); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); }
+.team-card .tc-photo { aspect-ratio: 4/5; overflow: hidden; background: var(--creme-2); }
+.team-card .tc-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.team-card:hover .tc-photo img { transform: scale(1.04); }
+.team-card .tc-body { padding: 22px 24px 24px; }
+.team-card h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -.01em; }
+.team-card p { color: var(--gris-tx); font-size: .95rem; margin-top: 2px; }
+/* Carte signature */
+.team-quote { background: radial-gradient(120% 120% at 80% 0%, #16365c 0%, var(--marine-900) 70%); color: #fff; border-radius: var(--radius);
+  padding: 40px 34px; display: flex; flex-direction: column; justify-content: flex-end; gap: 18px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+.team-quote::before { content: ""; position: absolute; left: 0; top: 0; height: 5px; width: 100%; background: var(--grad-thermo); }
+.team-quote .signature { margin-top: 0; font-size: clamp(1.8rem, 2.6vw, 2.3rem); }
+.team-quote .tq-text { color: #C4D2E6; font-size: 1.02rem; }
+.team-quote .btn { align-self: flex-start; margin-top: 8px; }
+@media (max-width: 1040px) { .team-grid { grid-template-columns: 1fr 1fr; } .team-quote { grid-column: 1 / -1; } }
+@media (max-width: 640px) { .team-grid { grid-template-columns: 1fr; } }
+/* Repère visuel temporaire : information à confirmer avec le client */
+.todo { outline: 2px dashed var(--orange); outline-offset: 4px; }
+@media (max-width: 560px) {
+  .brand img { height: 46px; }
+  .hdr.solid .brand img { height: 40px; }
+}
 
 /* ---------- Scroll reveal ---------- */
 .rv { opacity: 0; transform: translateY(34px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
